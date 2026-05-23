@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+</head>
+<body>
+
+    <h1>Todo List</h1>
+
+    <a href="/create">Add Task</a>
+
+    <hr>
+
+    {% for todo in todos %}
+
+        <h3>{{ todo.task }}</h3>
+
+        {% if todo.completed %}
+            <p>Status: Completed ✅</p>
+        {% else %}
+            <p>Status: Not Completed ❌</p>
+
+            <a href="/complete/{{ todo.id }}">
+                Complete
+            </a>
+        {% endif %}
+
+        <p>Created: {{ todo.created_at }}</p>
+
+        <hr>
+
+    {% endfor %}
+
+</body>
+</html>
